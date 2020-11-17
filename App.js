@@ -18,6 +18,10 @@ import JobBoardScreen from './pages/JobBoardScreen';
 import ProfileScreen from './pages/ProfileScreen';
 import CoursesScreen from './pages/CoursesScreen';
 import Curriculum from './Curriculum';
+import Preassessment from './Preassessment';
+import AssessmentScore from './AssessmentScore';
+import Quiz from './Quiz';
+import Video from './Video';
 import InitialQuestionnaire from './InitialQuestionnaire';
 
 const Stack = createStackNavigator();
@@ -53,10 +57,10 @@ function ProfileStack() {
           name="Profile"
           component={ProfileScreen}
           options={{ title: 'Profile Page' }}/>
-          <Stack.Screen
-            name="InitialQuestionnaire"
-            component={InitialQuestionnaire}
-          />
+        <Stack.Screen
+          name="InitialQuestionnaire"
+          component={InitialQuestionnaire}
+        />
       </Stack.Navigator>
   );
 }
@@ -74,10 +78,26 @@ function CoursesStack() {
         name="Courses"
         component={CoursesScreen}
         options={{ title: 'Courses Page' }}/>
-        <Stack.Screen
-            name="Curriculum"
-            component={Curriculum}
-        />
+      <Stack.Screen
+        name="Curriculum"
+        component={Curriculum}
+      />
+      <Stack.Screen
+        name="Preassessment"
+        component={Preassessment}
+      />
+      <Stack.Screen
+        name="Quiz"
+        component={Quiz}
+      />
+      <Stack.Screen
+        name="AssessmentScore"
+        component={AssessmentScore}
+      />
+      <Stack.Screen
+        name="Video"
+        component={Video}
+      />
     </Stack.Navigator>
   );
 }

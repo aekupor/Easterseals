@@ -3,14 +3,13 @@ import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
 
 const InitialQuestionnaire = ({navigation}) => {
   const [questionNum, setQuestionNum] = useState(1);
   const [questionText, setQuestionText] = useState("I feel totally comfortable in my understanding of: \n\n • What employers want in an employee \n • The tools I need to conduct an effective job search \n • Goal setting and am able to set effective goals \n • Setting a schedule for my daily tasks during job search \n • How to dress appropriately for the job search");
   const [response, getQuestionResponse] = useState();
   const responses = new Array(8);
-
   const ReviewQuestionnaire = ({qNum}) => {
     return (
         <View style = {styles.reviewQuestionnaireContainer}>
@@ -46,6 +45,9 @@ const InitialQuestionnaire = ({navigation}) => {
     if (questionNum < 8) {
         setQuestionNum(questionNum+1);
         changeQuestion();
+    }
+    else {
+        navigation.navigate('ReviewQuestionnaire')
     }
   }
   const prevQuestion = () => {
@@ -96,36 +98,17 @@ const InitialQuestionnaire = ({navigation}) => {
             title="Strongly Disagree"
           />
       </View>
-      <View style={{ flexDirection: 'row', margin: 10 }}>
-            <View style = {styles.navBtnContainer}>
-                <Button
-                  onPress={prevQuestion}
-                  title="Back"
-                />
-            </View>
+    <View style={{ flexDirection: 'row', margin: 10 }}>
+      <TouchableOpacity
+         style = {[styles.defaultButton, {padding: 10}]}>
+         <Text style = {styles.textButton}> Back </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+         style = {[styles.defaultButton, {padding: 10}]}>
+         <Text style = {styles.textButton}> Next </Text>
+      </TouchableOpacity>
+    </View>
 
-            <View style = {styles.navBtnContainer}>
-                <Button
-                  onPress={nextQuestion}
-                  title="Next"
-                />
-            </View>
-      </View>
-      <ReviewQuestionnaire qNum = "1"> </ReviewQuestionnaire>
-      <ReviewQuestionnaire qNum = "2"> </ReviewQuestionnaire>
-      <ReviewQuestionnaire qNum = "3"> </ReviewQuestionnaire>
-      <ReviewQuestionnaire qNum = "4"> </ReviewQuestionnaire>
-      <ReviewQuestionnaire qNum = "5"> </ReviewQuestionnaire>
-      <ReviewQuestionnaire qNum = "6"> </ReviewQuestionnaire>
-      <ReviewQuestionnaire qNum = "7"> </ReviewQuestionnaire>
-      <ReviewQuestionnaire qNum = "8"> </ReviewQuestionnaire>
-
-      <View style = {styles.buttonContainer}>
-        <Button
-            //onPress={}
-            title="Submit"
-        />
-      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -174,7 +157,18 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: "center",
         margin: 10
-    }
+    },
+    defaultButton: {
+        backgroundColor: "#004473",
+        margin: 20,
+        marginTop:30
+    },
+    textButton: {
+        color: "white",
+        alignItems: "center",
+        textAlign: "center",
+        fontSize: 18
+    },
 });
 
 export default InitialQuestionnaire;

@@ -32,7 +32,14 @@ const Card = ({title, letter}) => (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-
+      <ScrollView>
+          {/*<TouchableOpacity onPress={() => navigation.navigate('Preassessment')}>
+              <Text> Pre-Assessment </Text>
+          </TouchableOpacity>*/}
+          <Button
+              title = "Pre-Assessment"
+              onPress={() => navigation.navigate('Preassessment')}
+            />
           <Card title="Job Search Basics & Preparation" letter = "A"> </Card>
           <Card title="Interviewing" letter = "G"> </Card>
           <Card title="Employee Etiquette" letter = "H"> </Card>
@@ -41,7 +48,7 @@ const Card = ({title, letter}) => (
           <Card title="Research" letter = "C"> </Card>
           <Card title="Networking (Social Media)" letter = "E"> </Card>
           <Card title="Networking" letter = "F"> </Card>
-
+      </ScrollView>
       </SafeAreaView>
     </>
   );

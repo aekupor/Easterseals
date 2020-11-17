@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { View, Text, SafeAreaView } from 'react-native';
+import { View, Text, SafeAreaView, Button } from 'react-native';
 
-const ProfileScreen = () => {
+const ProfileScreen = ({route, navigation}) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, padding: 16 }}>
@@ -19,6 +19,10 @@ const ProfileScreen = () => {
             }}>
             You are on Profile Screen
           </Text>
+          <Button
+            title = "Initial Questionnaire"
+            onPress={() => navigation.navigate('InitialQuestionnaire')}
+          />
         </View>
       </View>
     </SafeAreaView>

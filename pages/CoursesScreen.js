@@ -4,7 +4,9 @@ import {
   StyleSheet,
   View,
   Text,
-  SafeAreaView
+  SafeAreaView,
+  Button,
+  ScrollView
 } from 'react-native';
 
 const CoursesScreen = ({ route, navigation }) => {
@@ -25,8 +27,13 @@ const CoursesScreen = ({ route, navigation }) => {
             }}>
             You are on Courses Screen
           </Text>
+
         </View>
       </View>
+      <Button
+        title = "Curriculum"
+        onPress={() => navigation.navigate('Curriculum')}
+      />
     </SafeAreaView>
   );
 }

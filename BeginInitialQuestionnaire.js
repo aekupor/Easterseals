@@ -5,31 +5,19 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
 
-const Preassessment = ({navigation}) => {
-  const [questionNum, setQuestionNum] = useState(1);
-  const [questionText, setQuestionText] = useState("I feel totally comfortable in my understanding of: \n\n • What employers want in an employee \n • The tools I need to conduct an effective job search \n • Goal setting and am able to set effective goals \n • Setting a schedule for my daily tasks during job search \n • How to dress appropriately for the job search");
-  const [response, getQuestionResponse] = useState();
-  const responses = new Array(8);
-  const ReviewQuestionnaire = ({qNum}) => {
-    return (
-        <View style = {styles.reviewQuestionnaireContainer}>
-            <Text> Question {qNum} </Text>
-            <Text> Question 1.........</Text>
-            <View style = {styles.buttonContainer}>
-
-            </View>
-        </View>
-    )
-  }
+const BeginInitialQuestionnaire = ({navigation}) => {
 
   return (
     <View style={styles.container}>
 
-    <Text style = {[styles.defaultText, {fontWeight: "bold"}]}>Before you begin the module, we will start with a pre-assessment quiz to gauge your prior knowledge of the topic. Click begin when you are ready to start.</Text>
+    <Text style = {styles.defaultHeader}> Initial Assessment </Text>
+
+    <Text style = {styles.defaultText}>Thank you for registering for this app. Please answer the following 4 questions to the best of your ability.</Text>
+    <Text style = {styles.defaultText}>Your responses will help guide you to the content that is most beneficial for you.</Text>
 
     <TouchableOpacity
         style = {[styles.defaultButton, {padding: 10}]}
-        onPress={() => navigation.navigate('Quiz')}>
+        onPress={() => navigation.navigate('InitialQuestionnaire')}>
         <Text style = {styles.textButton}> Begin </Text>
     </TouchableOpacity>
 
@@ -82,7 +70,7 @@ const styles = StyleSheet.create({
         margin: 10
     },
     defaultButton: {
-        backgroundColor: "#004473",
+        backgroundColor: "#DA540C",
         width: "15%",
         margin: 20,
         marginTop:30
@@ -94,12 +82,19 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 18
     },
+    defaultHeader: {
+        textAlign: "center",
+        color: "#022169",
+        fontSize: 20,
+        padding: 20,
+        fontWeight: "bold"
+    },
     defaultText: {
         textAlign: "center",
+        color: "#022169",
         fontSize: 16,
-        padding: 10,
-        fontWeight: "bold"
-     },
+        padding: 10
+      },
 });
 
-export default Preassessment;
+export default BeginInitialQuestionnaire;

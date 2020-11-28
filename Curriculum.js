@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, Button, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, FlatList, ImageBackground} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const LIST_DATA = new Array(2).fill('');
 const CARD_RADIUS = 8;
@@ -23,7 +24,11 @@ const Card = ({title, letter}) => (
       <Text style = {styles.headerText}> {title} </Text>
     </View>
     <TouchableOpacity style = {styles.cardButton}>
-        <Text style = {styles.textCardButton}> -> </Text>
+         <MaterialCommunityIcons
+           name="arrow-right"
+           color="white"
+           size={15}
+         />
     </TouchableOpacity>
   </View>
 );
@@ -38,7 +43,7 @@ const Card = ({title, letter}) => (
           </TouchableOpacity>*/}
           <Button
               title = "Pre-Assessment"
-              onPress={() => navigation.navigate('Preassessment')}
+              onPress={() => navigation.navigate('BeginPreassessment')}
             />
           <Card title="Job Search Basics & Preparation" letter = "A"> </Card>
           <Card title="Interviewing" letter = "G"> </Card>
@@ -166,12 +171,14 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     cardButton: {
-        borderRadius: 10,
-        height: 25,
+        borderRadius: 40,
+        height: 20,
+        width: 20,
         marginRight: 10,
+        alignItems: "center",
+        justifyContent:"center",
         backgroundColor: "#004473"
-    }
-
+    },
 });
 
 export default Curriculum;

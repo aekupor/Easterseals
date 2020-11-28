@@ -5,57 +5,61 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
 
+ var data = [
+    {
+        question: 'I know who I am, the marketable skills I possess, and the job that I want.',
+        response: ["True", "False"]
+    },
+    {
+        question: 'I would like to learn how to research: (Select all that apply)',
+        response: ["Industries", "Companies", "Hiring Managers", "Occupations", "Salary"]
+    },
+    {
+        question: 'Regarding my resume: (Only check one answer)',
+        response: ["I need a resume", "I want one-on-one resume assistance", "I want to learn how to write my own resume", "I don’t need resume assistance"]
+    },
+    {
+        question: 'I could use help with: (Select all that apply)',
+        response: ["Using LinkedIn", "My elevator pitch", "Writing a professional email", "Cover letters"]
+    },
+    {},
+  ];
+
 const InitialQuestionnaire = ({navigation}) => {
-  const [questionNum, setQuestionNum] = useState(1);
-  const [questionText, setQuestionText] = useState("I feel totally comfortable in my understanding of: \n\n • What employers want in an employee \n • The tools I need to conduct an effective job search \n • Goal setting and am able to set effective goals \n • Setting a schedule for my daily tasks during job search \n • How to dress appropriately for the job search");
-  const [response, getQuestionResponse] = useState();
-  const responses = new Array(8);
-  const ReviewQuestionnaire = ({qNum}) => {
-    return (
-        <View style = {styles.reviewQuestionnaireContainer}>
-            <Text> Question {qNum} </Text>
-            <Text> Question 1.........</Text>
-            <View style = {styles.buttonContainer}>
-                <Button title = "Agree"/>
-            </View>
-        </View>
-    )
+
+const [questionNum, setQuestionNum] = useState(1);
+const [questionText, setQuestionText] = useState(data[0].question);
+const [questionRes, setQuestionRes] = useState(data[0].response);
+
+const [response, getQuestionResponse] = useState();
+const [numOptions, setNumOptions] = useState();
+
+
+  const QuestionOption = () => {
+    return data[questionNum-1].response.map((option) => {
+        return (
+            <TouchableOpacity
+              style = {styles.buttonContainer}>
+              <Text>{option}</Text>
+            </TouchableOpacity>
+        )
+    })
   }
 
   const changeQuestion = () => {
-    if (questionNum == 1)
-      setQuestionText("I feel totally comfortable in my understanding of: \n\n • What employers want in an employee \n • The tools I need to conduct an effective job search \n • Goal setting and am able to set effective goals \n • Setting a schedule for my daily tasks during job search \n • How to dress appropriately for the job search");
-    else if (questionNum == 2)
-        setQuestionText("This is Question 2");
-    else if (questionNum == 3)
-        setQuestionText("This is Question 3");
-    else if (questionNum == 4)
-        setQuestionText("This is Question 4");
-    else if (questionNum == 5)
-        setQuestionText("This is Question 5");
-    else if (questionNum == 6)
-        setQuestionText("This is Question 6");
-    else if (questionNum == 7)
-        setQuestionText("This is Question 7");
-    else if (questionNum == 8)
-        setQuestionText("This is Question 8");
+    setQuestionText(data[questionNum-1].question);
   }
 
   const nextQuestion = () => {
-    if (questionNum < 8) {
+    if (questionNum < 4) {
         setQuestionNum(questionNum+1);
         changeQuestion();
     }
     else {
-        navigation.navigate('ReviewQuestionnaire')
+        navigation.navigate('InitialQuestionnaireType2')
     }
   }
-  const prevQuestion = () => {
-    if (questionNum > 1) {
-        setQuestionNum(questionNum-1);
-        changeQuestion();
-    }
-  }
+
   const questionResponse = (response) => {
     responses[questionNum] = response;
   //store user's response to question
@@ -64,50 +68,19 @@ const InitialQuestionnaire = ({navigation}) => {
   return (
     <View style={styles.container}>
 
-    <Button
-        title = "Curriculum"
-        onPress={() => navigation.navigate('Curriculum')}
-    />
-      <Text>Question { questionNum } of 8</Text>
-      <Text> Response: {responses[questionNum]} </Text>
+      <Text style = {styles.defaultText}> Question #{ questionNum } </Text>
 
       <View style = {styles.questionContainer}>
         <Text> {questionText} </Text>
       </View>
-      <View style = {styles.buttonContainer}>
-          <Button
-            onPress={(event) => questionResponse("Strongly Agree")}
-            title="Strongly Agree"
-          />
-      </View>
-      <View style = {styles.buttonContainer}>
-          <Button
-            onPress={(event) => questionResponse("Agree")}
-            title="Agree"
-          />
-      </View>
-      <View style = {styles.buttonContainer}>
-          <Button
-            onPress={(event) => questionResponse("Disagree")}
-            title="Disagree"
-          />
-      </View>
-      <View style = {styles.buttonContainer}>
-          <Button
-            onPress={(event) => questionResponse("Strongly Disagree")}
-            title="Strongly Disagree"
-          />
-      </View>
-    <View style={{ flexDirection: 'row', margin: 10 }}>
-      <TouchableOpacity
-         style = {[styles.defaultButton, {padding: 10}]}>
-         <Text style = {styles.textButton}> Back </Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-         style = {[styles.defaultButton, {padding: 10}]}>
-         <Text style = {styles.textButton}> Next </Text>
-      </TouchableOpacity>
-    </View>
+
+       <QuestionOption></QuestionOption>
+
+       <TouchableOpacity
+           style = {[styles.defaultButton, {padding: 10}]}
+           onPress = {nextQuestion}>
+           <Text style = {styles.textButton}> Submit </Text>
+       </TouchableOpacity>
 
       <StatusBar style="auto" />
     </View>
@@ -130,15 +103,21 @@ const styles = StyleSheet.create({
       fontSize: 15,
       fontFamily: "arial",
       textAlign: "center",
-      color: "#0061A5",
-      borderRadius: 10,
+      color: "white",
+      borderRadius: 20,
       borderWidth: 1,
       borderColor: '#fff',
     },
     buttonContainer: {
       width: "20%",
       margin: 10,
-      backgroundColor: "#004473",
+      backgroundColor: "white",
+      borderRadius: 40,
+      alignItems: "center",
+      textAlign: "center",
+      padding: 20,
+      borderWidth: 2,
+      borderColor: "#004473"
     },
     questionContainer: {
         width: "70%",
@@ -160,15 +139,23 @@ const styles = StyleSheet.create({
     },
     defaultButton: {
         backgroundColor: "#004473",
+        width: "15%",
         margin: 20,
         marginTop:30
     },
     textButton: {
         color: "white",
+        fontWeight: "bold",
         alignItems: "center",
         textAlign: "center",
         fontSize: 18
     },
+    defaultText: {
+        textAlign: "center",
+        fontSize: 16,
+        fontWeight: "bold",
+        padding: 10
+      },
 });
 
 export default InitialQuestionnaire;

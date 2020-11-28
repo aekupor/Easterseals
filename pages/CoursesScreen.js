@@ -34,6 +34,11 @@ const CoursesScreen = ({ route, navigation }) => {
         title = "Curriculum"
         onPress={() => navigation.navigate('Curriculum')}
       />
+
+      <Button
+        title = "Key Takeaways"
+        onPress={() => navigation.navigate('KeyTakeaways')}
+      />
     </SafeAreaView>
   );
 }

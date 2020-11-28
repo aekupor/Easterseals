@@ -21,7 +21,7 @@ const ProfileScreen = ({route, navigation}) => {
           </Text>
           <Button
             title = "Initial Questionnaire"
-            onPress={() => navigation.navigate('InitialQuestionnaire')}
+            onPress={() => navigation.navigate('BeginInitialQuestionnaire')}
           />
         </View>
       </View>

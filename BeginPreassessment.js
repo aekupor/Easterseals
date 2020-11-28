@@ -5,32 +5,20 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
 
-const Preassessment = ({navigation}) => {
-  const [questionNum, setQuestionNum] = useState(1);
-  const [questionText, setQuestionText] = useState("I feel totally comfortable in my understanding of: \n\n • What employers want in an employee \n • The tools I need to conduct an effective job search \n • Goal setting and am able to set effective goals \n • Setting a schedule for my daily tasks during job search \n • How to dress appropriately for the job search");
-  const [response, getQuestionResponse] = useState();
-  const responses = new Array(8);
-  const ReviewQuestionnaire = ({qNum}) => {
-    return (
-        <View style = {styles.reviewQuestionnaireContainer}>
-            <Text> Question {qNum} </Text>
-            <Text> Question 1.........</Text>
-            <View style = {styles.buttonContainer}>
-
-            </View>
-        </View>
-    )
-  }
+const BeginPreassessment = ({navigation}) => {
 
   return (
     <View style={styles.container}>
 
-    <Text style = {[styles.defaultText, {fontWeight: "bold"}]}>Before you begin the module, we will start with a pre-assessment quiz to gauge your prior knowledge of the topic. Click begin when you are ready to start.</Text>
+    <Text style = {styles.defaultHeader}> Welcome to course B3:</Text>
+    <Text style = {[styles.defaultHeader, {color:"#CF4B04"}]}> Course Name</Text>
+
+    <Text style = {styles.defaultText}>Please click the next button to begin the course. </Text>
 
     <TouchableOpacity
         style = {[styles.defaultButton, {padding: 10}]}
-        onPress={() => navigation.navigate('Quiz')}>
-        <Text style = {styles.textButton}> Begin </Text>
+        onPress={() => navigation.navigate('Preassessment')}>
+        <Text style = {styles.textButton}> Next </Text>
     </TouchableOpacity>
 
     </View>
@@ -82,7 +70,7 @@ const styles = StyleSheet.create({
         margin: 10
     },
     defaultButton: {
-        backgroundColor: "#004473",
+        backgroundColor: "#DA540C",
         width: "15%",
         margin: 20,
         marginTop:30
@@ -94,12 +82,18 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 18
     },
+    defaultHeader: {
+        textAlign: "center",
+        fontSize: 20,
+        padding: 20,
+        fontWeight: "bold"
+    },
     defaultText: {
         textAlign: "center",
         fontSize: 16,
         padding: 10,
         fontWeight: "bold"
-     },
+  },
 });
 
-export default Preassessment;
+export default BeginPreassessment;

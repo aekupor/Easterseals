@@ -33,7 +33,7 @@ const [response, getQuestionResponse] = useState();
   return (
     <View style={styles.container}>
 
-      <Text> Question #5 </Text>
+      <Text style = {styles.defaultText}> Question #5 </Text>
 
       <View style = {styles.questionContainer}>
         <Text> Select True (Thumbs Up) or False (Thumbs Down) for the following statements: </Text>
@@ -216,6 +216,12 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection: 'row',
     },
+   defaultText: {
+        textAlign: "center",
+        fontSize: 16,
+        fontWeight: "bold",
+        padding: 10
+      },
 });
 
 export default InitialQuestionnaireType2;

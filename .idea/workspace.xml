@@ -23,19 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="619f4ca3-f7d1-4b7e-a66a-3aa7d46ef324" name="Default Changelist" comment="Created Questionnaire page">
-      <change afterPath="$PROJECT_DIR$/BeginInitialQuestionnaire.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BeginPreassessment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InitialQuestionnaireType2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KeyTakeaways.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.expo/packager-info.json" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/packager-info.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.expo/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Curriculum.js" beforeDir="false" afterPath="$PROJECT_DIR$/Curriculum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InitialQuestionnaire.js" beforeDir="false" afterPath="$PROJECT_DIR$/InitialQuestionnaire.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Preassessment.js" beforeDir="false" afterPath="$PROJECT_DIR$/Preassessment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/CoursesScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/CoursesScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ProfileScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InitialQuestionnaireType2.js" beforeDir="false" afterPath="$PROJECT_DIR$/InitialQuestionnaireType2.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
